@@ -1,0 +1,312 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="back_re">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                        <h2>Customer Dashboard</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+        {% include 'includes/alerts.html' %}
+    </div>
+</div>
+
+
+
+
+<!--Starticstics starts-->
+<div class="container my-3"> <!--my-5 would give it margin at the top and bottom outside the element-->
+    <div class="row mb-5">
+        <div class="col-lg-3 col-md-6 mb-4"> <!--mb-4 means margin bottom-->
+            <div class="d-flex justify-content-around shadow-lg align-items-center p-4 rounded">
+                <div>
+                    <i class="far fa-smile fa-3x text-primary"></i> <!--fa-3x increases the size-->
+                </div>
+                <div>
+                    <p class="fs-1 fw-bolder mb-0">42</p>
+                    <!--fs is font size, fw is font weight and the margin bottom is 0-->
+                    <p class="md-1">Happy clients</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4"> <!--mb-4 means margin bottom-->
+            <div class="d-flex justify-content-around shadow-lg align-items-center p-4 rounded">
+                <div>
+                    <i class="fas fa-trophy text-success fa-3x"></i> <!--fa-3x increases the size-->
+                </div>
+                <div>
+                    <p class="fs-1 fw-bolder mb-0">42</p>
+                    <!--fs is font size, fw is font weight and the margin bottom is 0-->
+                    <p class="md-1">Awards Won</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4"> <!--mb-4 means margin bottom-->
+            <div class="d-flex justify-content-around shadow-lg align-items-center p-4 rounded">
+                <div>
+                    <i class="fas fa-file-invoice fa-3x text-danger"></i> <!--fa-3x increases the size-->
+                </div>
+                <div>
+                    <p class="fs-1 fw-bolder mb-0">42</p>
+                    <!--fs is font size, fw is font weight and the margin bottom is 0-->
+                    <p class="md-1">Projects Done</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4"> <!--mb-4 means margin bottom-->
+            <div class="d-flex justify-content-around shadow-lg align-items-center p-4 rounded">
+                <div>
+                    <i class="fas fa-user-friends fa-3x text-info"></i> <!--fa-3x increases the size-->
+                </div>
+                <div>
+                    <p class="fs-1 fw-bolder mb-0">42</p>
+                    <!--fs is font size, fw is font weight and the margin bottom is 0-->
+                    <p class="md-1">Team members</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--Starticstics ends-->
+
+<div class="container my-3">
+    <div class="side-nav">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link disabled" style="color: brown;">Side Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-dashboard"></i>Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-area-chart"></i>Charts</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-table"></i>Tables</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-wrench"></i>Components</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-file"></i>Pages</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fa fa-link"></i>Links</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link"><i class="fas fa-calendar-check"></i>Calender</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!-- about -->
+<div class="about" id="about">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="titlepage">
+                    <h2>About Us</h2>
+                    <p>The passage experienced a surge in popularity during the 1960s when Letraset used it on their
+                        dry-transfer sheets, and again during the 90s as desktop publishers bundled the text with their
+                        software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
+                        generator to get your own, or read on for the authoritative history of lorem ipsum. </p>
+                    <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="about_img">
+                    <figure><img src="{% static 'images/about.png' %}" alt="#" /></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end about -->
+
+<!-- SERVICES START -->
+
+<section id="services" class="container py-1 my-1">
+    <div class="container">
+        <div class="text-center py-5">
+            <h2 class="fw-bolder border-bottom border-info border-3 d-inline-block pb-1">Services</h2>
+            <!--pb-1 is padding bottom which gives the line some space from the textborder 3 is the height, d-inline-block means display-inline block. if i remove that then the line would take the full width of the page-->
+            <p class="fs-5 mt-3">This is a fullstack web development company who specializes in graphics design and
+                other
+                models</p>
+        </div>
+        <div class="row pb-5">
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-solid fa-pen-nib fa-3x text-success pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Book a cab</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-success fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-mobile fa-3x text-danger pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Book a room </h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-danger fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-desktop fa-3x text-warning pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Order a meal</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-warning fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-chart-bar fa-3x text-secondary pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Analytics</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-secondary fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-globe fa-3x text-info pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Car rental</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-info fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-cogs fa-3x text-primary pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Work with us</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-primary fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-chart-bar fa-3x text-secondary pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Activities</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-secondary fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-globe fa-3x text-info pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Help</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-info fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-1">
+                <div class="shadow-lg p-5 text-center border-bottom border-4 border-success">
+                    <i class="fas fa-cogs fa-3x text-primary pb-4 pt-2"></i>
+                    <h4 class="fw-bolder fs-3 pb-3">Wallet</h4>
+                    <p class="pb-3">In Font Awesome 6, the way icons are referenced has changed slightly from Font
+                        Awesome 5.
+                        <!--pb-3 pushes read more botton down-->
+                        In Font Awesome 6, the naming convention for icons is simplified and unified.
+                    </p>
+                    <a href="" class="text-primary fw-bold text-decoration-none">Read More <i
+                            class="fas fa-long-arrow-alt-right ms-1"></i></a>
+                </div>
+            </div>
+
+
+        </div>
+
+</section>
+
+
+
+
+<section id="pricing" class="container py-1">
+    <div class="text-center py-5">
+
+        welcome, {{user.first_name}}
+
+        welcome, {{user.last_name}}
+
+        you are a {{user.get_role}}
+    </div>
+</section>
+
+
+
+
+
+{% endblock %}
