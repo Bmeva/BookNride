@@ -1,0 +1,70 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+<section class="banner_main">
+    <div id="myCarousel" class="carousel slide banner" data-ride="carousel">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="first-slide" src="{% static 'images/banner1.jpg' %}" alt="First slide">
+                <div class="container">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+            {% include 'includes/alerts.html' %}
+        </div>
+    </div>
+
+
+    <div class="booking_ocline">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="book_room">
+                        <h1>Login</h1>
+                        <form class="book_now" action="{% url 'LoginView' %}" method="post"
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span>Email</span>
+                                    <input class="online_book" placeholder="Your email" type="email" name="email">
+                                </div>
+                                <div class="col-md-12">
+                                    <span>Password</span>
+                                    <input class="online_book" placeholder="Password" type="password" name="password">
+                                </div>
+                                <span><small><a href="{% url 'forgot_password' %}" class="btn btn-danger">Forgot
+                                            password or
+                                            username?</a></small></span>
+
+                                <div class="col-md-12">
+                                    <button type="submit" class="book_btn">Login</button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end banner -->
+
+
+
+
+
+{% endblock %}

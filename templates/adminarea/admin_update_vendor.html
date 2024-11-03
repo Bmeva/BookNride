@@ -1,0 +1,285 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+<!--buttons-->
+
+
+
+
+<!--  contact -->
+<div class="contact" id="contact" style="margin-top: 8rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2 class="content-text" id="contentText"> Admin Vendor Update form</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    {% include 'includes/alerts.html' %}
+                </div>
+            </div>
+
+
+            <form action="{% url 'admin_update_vendor' thevendor.pk %}" id="form1" class="main_form" method="POST"
+                enctype="multipart/form-data">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h3>Update Vendor </h3>
+                        <h3>Back</h3>
+                    </div>
+                </div>
+                {% csrf_token %}
+                {{ theuserupdate.non_field_errors }}
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <div class="row">
+                            <div class="col-md-12 ">
+                                {{theuserupdate.first_name}}
+                                {% if theuserupdate.first_name.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.first_name.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                {{theuserupdate.last_name}}
+                                {% if theuserupdate.last_name.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.last_name.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
+
+                            <div class="col-md-12">
+                                {{theuserupdate.username}}
+                                {% if theuserupdate.username.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.username.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                {{theuserupdate.email}}
+                                {% if theuserupdate.email.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.email.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="col-md-12 ">
+                                {{theuserupdate.post_code}}
+                            </div>
+
+                            <div class="col-md-12">
+                                {{theuserupdate.bio}}
+                            </div>
+
+
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+                                {{theuserupdate.phone_number}}
+                                {% if theuserupdate.phone_number.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.phone_number.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                {{theuserupdate.password}}
+                                {% if theuserupdate.password.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.password.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                {{theuserupdate.confirm_password}}
+                                {% if theuserupdate.confirm_password.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.confirm_password.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-12">
+                                {{thevendorupdate.VendorName}}
+                                {% if thevendorupdate.VendorName.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.VendorName.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-12">
+                                {% if thevendorupdate.IsApproved.help_text %}
+                                <p><small class="form-text text-muted">{{ thevendorupdate.IsApproved.help_text}}</small>
+                                </p>
+                                {% endif %}
+                                <input type="checkbox" name="IsApproved" id="customIsApprovedId" {% if thevendorupdate.IsApproved.value %} checked{% endif %}>
+
+
+                                <!-- {{thevendorupdate.IsApproved}} -->
+                                {% if thevendorupdate.IsApproved.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.IsApproved.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="col-md-12" style="display: none;" id="showmailsubjecttextbox">
+                                {% if thevendorupdate.mail_approval_subject.help_text %}
+                                <p><small class="form-text text-muted">{{ thevendorupdate.mail_approval_subject.help_text}}</small>
+                                </p>
+                                {% endif %}
+                               
+                               {{thevendorupdate.mail_approval_subject}}
+                                {% if thevendorupdate.mail_approval_subject.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.mail_approval_subject.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+
+                            <div class="col-md-12" style="display: none;" id="showmailbodytextbox">
+                                {% if thevendorupdate.mail_approval_body.help_text %}
+                                <p><small class="form-text text-muted">{{ thevendorupdate.mail_approval_body.help_text}}</small>
+                                </p>
+                                {% endif %}
+                               
+                               {{thevendorupdate.mail_approval_body}}
+                                {% if thevendorupdate.mail_approval_body.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.mail_approval_body.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                           
+
+                            <div class="col-md-6">
+                                {% if thevendorupdate.vendorType.help_text %}
+                                <p><small class="form-text text-muted">{{ thevendorupdate.vendorType.help_text}}</small>
+                                </p>
+                                {% endif %}
+                                {{thevendorupdate.vendorType}}
+                                {% if thevendorupdate.vendorType.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.vendorType.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-6">
+                                <!--{{ v_form.VendorLicense.label_tag }}-->
+                                {% if thevendorupdate.VendorLicense.help_text %}
+                                <p><small
+                                        class="form-text text-muted">{{thevendorupdate.VendorLicense.help_text}}</small>
+                                </p>
+                                {% endif %}
+                                {{thevendorupdate.VendorLicense}}
+                                {% if thevendorupdate.VendorLicense.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.VendorLicense.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="submit" value="Update" class="send_btn">
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            // Select the checkbox using the custom ID added in the template
+            const checkbox = document.getElementById("customIsApprovedId");
+
+            // Add the onclick event listener to the checkbox
+            checkbox.onclick = function () {
+                var showmailsubject = document.getElementById('showmailsubjecttextbox');
+                var showmailbody = document.getElementById('showmailbodytextbox');
+                showmailsubject.style.display = 'block';
+                showmailbody.style.display = 'block';
+
+                if (checkbox.checked) {
+                    const confirmApprove = confirm("Do you want to approve it?");
+                    if (!confirmApprove) {
+                        checkbox.checked = false;
+                    }
+                } else {
+                    const confirmUnapprove = confirm("Do you want to unapprove it?");
+                    if (!confirmUnapprove) {
+                        checkbox.checked = true;
+                    }
+                }
+            };
+        }
+    </script>
+
+
+    {% endblock %}

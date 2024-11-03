@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JurneyHub | Book and ride</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}" />
+
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+    <!-- <script src="{% static 'js/myjs.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+
+
+<body>
+
+    <nav class="navigation navbar navbar-expand-md navbar-dark bg-light fixed-top" id="navbar-scroll">
+
+
+        <div class="container">
+
+            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                <div class="full">
+                    <div class="center-desk">
+                        <div class="logo">
+                            <a href="{% url 'home' %}"><img src="{% static 'images/brlogo.jpg' %}" alt="#" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="navbar-toggler btn btn-dark" data-bs-toggle="collapse" data-bs-target="#navbarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <ul class="navbar-nav ms-auto my-3 my-md-0 fw-bolder">
+                    <li class="nav-item">
+                        <a href="{% url 'home' %}" class="active nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Registration
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a href="{% url 'registeruser' %}" class="dropdown-item">Customer reg</a></li>
+                            <li><a href="{% url 'vendorreg' %}" class="dropdown-item">Vendor Reg</a></li>
+                            <li><a href="{% url 'driverreg' %}" class="dropdown-item">Driver Reg</a></li>
+                            <li><a href="" class="dropdown-item">{{user.first_name}}</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{% url 'vendorreg' %}" class="nav-link">Pricing</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Authentication
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            {% if not user.is_authenticated %}
+                            <li><a href="{% url 'LoginView' %}" class="dropdown-item">Login</a></li>
+                            <li><a href="{% url 'get_all_vendor' %}" class="dropdown-item">Admin Area</a></li>
+                            <li><a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a></li>
+                            {% else %}
+                            <li><a href="{% url 'admin:index' %}" class="dropdown-item">Admin</a></li>
+
+                            {% endif %}
+
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'logout' %}" class="dropdown-item">Logout</a></li>
+                            <li><a href="{% url 'get_all_vendor' %}" class="dropdown-item">Admin Area</a></li>
+                            <li><a href="{% url 'video' %}" class="dropdown-item">video</a></li>
+                            <li><a href="{% url 'registeruser' %}" class="dropdown-item">Reset Credentials</a></li>
+                            {% endif %}
+
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a href="#"><i class="fa fa-bell-o"></i>2</a> -->
+                        <a href="#"><i class="fas fa-envelope red_color"></i><span red_color>3</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- <a href="#"><i class="fa fa-bell-o"></i>2</a> -->
+                        <a href="#"><i class="fas fa-bell red_color"></i><span red_color>3</span></a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    <!-- JavaScript files -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/myjs.js' %}"></script>
+
+</body>
+
+</html>

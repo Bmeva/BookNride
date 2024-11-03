@@ -1,0 +1,18 @@
+{% autoescape off %}
+
+Hi {{user.first_name}},
+
+{% if is_approved %}
+    <p>{{ subject }}</p>
+{% else %}
+    <p>{{ subject }}</p>
+{% endif %}
+
+<p>{{ body }}</p>
+
+<p>Best regards,<br>Your Company</p>
+
+
+{% endautoescape %}
+
+

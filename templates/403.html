@@ -1,0 +1,36 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+<!-- about -->
+<div class="about" id="about">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="titlepage">
+                    <h2>About Us</h2>
+                    <p>You are a fool </p>
+                    <a class="read_more" href="Javascript:void(0)"> Read More</a>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="about_img">
+                    <figure><img src="{% static 'images/about.png' %}" alt="#" /></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end about -->
+
+
+
+
+
+{% include 'includes/footer.html' %}
+
+
+{% endblock %}
