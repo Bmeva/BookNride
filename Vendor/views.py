@@ -11,7 +11,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from authentication.utility import send_verification_email
 from authentication.utility import newuserEmail
-
+from django.shortcuts import get_object_or_404
+from .models import vendor
 
 # Create your views here.
 
@@ -69,13 +70,19 @@ def vendorreg(request):
 #@login_required(login_url = 'login') 
 def vdashboard(request):
     if not request.user.is_authenticated:
-        return redirect('login') 
+        return redirect('LoginView') 
     
     if request.user.role != 1:
          #return HttpResponse("You are not authorised to view this page")
         raise PermissionDenied #I added a 403.html so it would display the content inside the 403.html. otherwise it would display the default notification
     
-    return render (request, 'vendor/vdashboard.html' )
+    thevendor = get_object_or_404(vendor, user= request.user)
+    
+    context ={
+        'thevendor': thevendor,
+    }
+    
+    return render (request, 'vendor/vdashboard.html', context )
 
 # def vendorreg(request):
 #     if request.user.is_authenticated: 

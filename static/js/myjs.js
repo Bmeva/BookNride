@@ -12,7 +12,7 @@ $(document).ready(function () { //This function is used to close the alert butto
 });
 
 
-document.addEventListener('DOMContentLoaded', function () { //I used this on the customer registration page to dispaly various forms
+document.addEventListener('DOMContentLoaded', function () { //I used this on the vendor registration page to dispaly various forms
     var showForm1Button = document.getElementById('showForm1');
     var showForm2Button = document.getElementById('showForm2');
     var showForm3Button = document.getElementById('showForm3');

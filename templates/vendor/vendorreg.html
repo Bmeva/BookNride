@@ -42,21 +42,21 @@
             <div class="col-12 col-md-4 mb-2 mb-md-0">
                <div>
                   <button class="book_btn2 w-100" type="button" id="showForm1" aria-expanded="false">
-                     Customer
+                     Vendor
                   </button>
                </div>
             </div>
             <div class="col-12 col-md-4 mb-2 mb-md-0">
                <div>
                   <button class="book_btn2 w-100" type="button" id="showForm2" aria-expanded="false">
-                     Vendor
+                     Vendor 2
                   </button>
                </div>
             </div>
             <div class="col-12 col-md-4">
                <div>
                   <button class="book_btn2 w-100" type="button" id="showForm3" aria-expanded="false">
-                     Driver
+                     Driver 3
                   </button>
                </div>
             </div>
@@ -248,14 +248,12 @@
             </div>
          </form>
 
-
-
-
+         
          <form action="{% url 'vendorreg' %}" id="form2" style="display: none;" class="main_form" method="post"
             enctype="multipart/form-data">
             <div class="col-md-12">
                <div class="titlepage">
-                  <h3>Customer reg</h3>
+                  <h3>Vendor reg 2</h3>
                </div>
             </div>
             {% csrf_token %}
@@ -271,6 +269,17 @@
                            {% for error in form.first_name.errors %}
                            <li>{{ error }}</li>
                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                     </div>
+                     <div class="col-md-12 ">
+                        {{form.first_name}}
+                        {% if form.first_name.errors %}
+                        <ul class="errorlist">
+                           {% for error in form.first_name.errors %}
+                           <li>{{ error }}</li>
+                           {% endfor %}
+                           <p>second</p>
                         </ul>
                         {% endif %}
                      </div>
@@ -407,12 +416,12 @@
             </div>
          </form>
 
-
+         
          <form action="{% url 'vendorreg' %}" id="form3" style="display: none;" class="main_form" method="post"
             enctype="multipart/form-data">
             <div class="col-md-12">
                <div class="titlepage">
-                  <h3>Driver reg</h3>
+                  <h3>Vendor reg 3</h3>
                </div>
             </div>
             {% csrf_token %}
@@ -421,6 +430,16 @@
                <div class="col-md-6">
 
                   <div class="row">
+                     <div class="col-md-12 ">
+                        {{form.first_name}}
+                        {% if form.first_name.errors %}
+                        <ul class="errorlist">
+                           {% for error in form.first_name.errors %}
+                           <li>{{ error }}</li>
+                           {% endfor %}
+                        </ul>
+                        {% endif %}
+                     </div>
                      <div class="col-md-12 ">
                         {{form.first_name}}
                         {% if form.first_name.errors %}
@@ -563,6 +582,13 @@
 
             </div>
          </form>
+
+
+
+
+
+
+
 
 
       </div>

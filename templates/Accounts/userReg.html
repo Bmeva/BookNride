@@ -16,16 +16,12 @@
                   software. Today it's seen all around the web; on templates, websites, and stock designs. Use our
                   generator to get your own, or read on for the authoritative history of lorem ipsum. </p>
 
-               <div class="dropdown">
-                  <button class="reg_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Select your Registration Type
+                  <button class="reg_btn" type="button" aria-expanded="false">
+                     Customer registration
                   </button>
-                  <ul class="dropdown-menu">
-                     <li><button class="dropdown-item" id="showForm1" type="button">Customer Registration</button></li>
-                     <li><button class="dropdown-item" id="showForm2" type="button">Vendor Registration</button></li>
-                     <li><button class="dropdown-item" id="showForm3" type="button">Driver Registration</button></li>
-                  </ul>
-               </div>
+                  
+                  
+             
             </div>
          </div>
          <div class="col-md-7">
@@ -61,7 +57,7 @@
          </div>
 
 
-         <form action="{% url 'registeruser' %}" id="form1" class="main_form main_formReg" method="post">
+         <form action="{% url 'registeruser' %}" class="main_form " method="post">
             <div class="col-md-12">
                <div class="titlepage">
                   <h3>Customer registration form: Fill the form below to get started</h3>
@@ -171,252 +167,7 @@
             </div>
          </form>
 
-
-         <!--vendor registration-->
-         <form action="{% url 'vendorreg' %}" id="form2" class="main_form main_formReg" method="post">
-            <div class="col-md-12">
-               <div class="titlepage">
-                  <h3>Vendor registration form: Fill the form below to get started</h3>
-               </div>
-            </div>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            <div class="row">
-               <div class="col-md-6">
-
-                  <div class="row">
-                     <div class="col-md-12 ">
-                        {{form.first_name}}
-                        {% if form.first_name.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.first_name.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.last_name}}
-                        {% if form.last_name.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.last_name.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-
-                     <div class="col-md-12">
-                        {{v_form.VendorName}}
-                        {% if v_form.VendorName.errors %}
-                        <ul class="errorlist">
-                           {% for error in v_form.VendorName.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-
-                     <div class="col-md-12">
-                        {{v_form.VendorLicense}}
-                        {% if v_form.VendorLicense.errors %}
-                        <ul class="errorlist">
-                           {% for error in v_form.VendorLicense.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-
-                     <div class="col-md-12">
-                        {{form.username}}
-                        {% if form.username.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.username.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.email}}
-                        {% if form.email.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.email.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-
-                     </div>
-                     <div class="col-md-12 ">
-                        {{form.post_code}}
-                     </div>
-
-                  </div>
-
-               </div>
-
-               <div class="col-md-6">
-
-                  <div class="row">
-
-                     <div class="col-md-12">
-                        {{form.phone_number}}
-                        {% if form.phone_number.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.phone_number.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.password}}
-                        {% if form.password.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.password.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.confirm_password}}
-                        {% if form.confirm_password.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.confirm_password.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.bio}}
-                     </div>
-                     <div class="col-md-12">
-                        <input type="submit" value="Register" class="send_btn">
-                     </div>
-
-
-                  </div>
-
-               </div>
-
-            </div>
-         </form>
-
-         <!--Driver registration-->
-         <form action="{% url 'registeruser' %}" id="form3" class="main_form main_formReg" method="post">
-            <div class="col-md-12">
-               <div class="titlepage">
-                  <h3>Driver registration form: Fill the form below to get started</h3>
-               </div>
-            </div>
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            <div class="row">
-               <div class="col-md-6">
-
-                  <div class="row">
-                     <div class="col-md-12 ">
-                        {{form.first_name}}
-                        {% if form.first_name.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.first_name.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.last_name}}
-                        {% if form.last_name.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.last_name.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.username}}
-                        {% if form.username.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.username.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.email}}
-                        {% if form.email.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.email.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-
-                     </div>
-                     <div class="col-md-12 ">
-                        {{form.post_code}}
-                     </div>
-
-                  </div>
-
-               </div>
-
-               <div class="col-md-6">
-
-                  <div class="row">
-
-                     <div class="col-md-12">
-                        {{form.phone_number}}
-                        {% if form.phone_number.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.phone_number.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.password}}
-                        {% if form.password.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.password.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.confirm_password}}
-                        {% if form.confirm_password.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.confirm_password.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
-                     <div class="col-md-12">
-                        {{form.bio}}
-                     </div>
-                     <div class="col-md-12">
-                        <input type="submit" value="Register" class="send_btn">
-                     </div>
-
-
-                  </div>
-
-               </div>
-
-            </div>
-         </form>
-
+         
       </div>
    </div>
 

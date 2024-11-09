@@ -14,7 +14,7 @@
                 <div class="user_img"><img class="img-responsive" src="{% static 'images/user_img.jpg' %}" alt="#" />
                 </div>
                 <div class="user_info">
-                    <h6>Evans</h6>
+                    <h6>{{ user.first_name }}</h6>
                     <p><span class="online_animation"></span> Online</p>
                 </div>
             </div>
@@ -51,7 +51,7 @@
 
     <!-- side menu end -->
 
-    <div class="container my-5">
+    <div class="container" style="margin-top: 4rem;">
         <div class="back_re">
             <div class="container">
                 <div class="row">

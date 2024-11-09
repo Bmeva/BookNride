@@ -52,7 +52,7 @@ class LoginView(View):
 def logout(request):
     auth.logout(request)
     messages.info(request, "you are now logged out")
-    return redirect('home')
+    return redirect('LoginView')
 
 
 

@@ -20,6 +20,7 @@ class UserManager(BaseUserManager):
                        
             
             )
+      
         user.set_password(password) 
         user.save(using=self._db)
         return user
@@ -45,7 +46,7 @@ class UserManager(BaseUserManager):
      
 
      
-class User(AbstractBaseUser): #there us another called AbstractUser class only allows you to add extra fields to your models
+class User(AbstractBaseUser): #there is another called AbstractUser class only allows you to add extra fields to your models
     #we would extend it in the user class and we would take full control of the editing user model including the authetication functionality
 
     VENDOR = 1
@@ -78,7 +79,9 @@ class User(AbstractBaseUser): #there us another called AbstractUser class only a
 
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    #if you remove this then by default they would not be active and cant login. So if you want to disable 
+    #an account write a code to disable the active status
     is_superadmin = models.BooleanField(default=False)
 
 

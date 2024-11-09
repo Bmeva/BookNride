@@ -31,7 +31,7 @@ def registeruser(request):
             newuserEmail(request, user)
 
             messages.success(request, "Your account has been registered successfully")
-            return redirect('login')  # Redirect to signin page after successful registration
+            return redirect('LoginView')  # Redirect to signin page after successful registration
         else:
             messages.error(request, "There was an error with your form submission. Please correct the errors below.")
             print("invalid form")

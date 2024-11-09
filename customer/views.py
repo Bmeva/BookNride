@@ -9,7 +9,7 @@ from django.http import HttpResponse
 # @login_required(login_url = 'login') 
 def cdashboard(request):
     if not request.user.is_authenticated: #instead of using the login decorator i can check if users are logged in and redirect them
-        return redirect('login') 
+        return redirect('LoginView') 
     if request.user.role != 2:
          #return HttpResponse("You are not authorised to view this page")
         raise PermissionDenied #I added a 403.html so it would display the content inside the 403.html. otherwise it would display the default notification

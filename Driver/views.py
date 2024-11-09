@@ -49,7 +49,7 @@ def driverreg(request):
             newuserEmail(request, user)
             
             messages.success(request, "Your account has been registered succesfully, please wait for approval")
-            return redirect('login')
+            return redirect('LoginView')
 
 
         else:
@@ -68,11 +68,12 @@ def driverreg(request):
     }
        
     return render(request, 'Driver/driverreg.html', context)
+   
 
 #@login_required(login_url = 'login') 
 def ddashboard(request):
     if not request.user.is_authenticated: #instead of using the login decorator i can check if users are logged in and redirect them
-        return redirect('login') 
+        return redirect('LoginView') 
     
     if request.user.role != 3:
         #return HttpResponse("You are not authorised to view this page")

@@ -270,6 +270,10 @@
                     const confirmApprove = confirm("Do you want to approve it?");
                     if (!confirmApprove) {
                         checkbox.checked = false;
+                        var showmailsubject = document.getElementById('showmailsubjecttextbox');
+                        var showmailbody = document.getElementById('showmailbodytextbox');
+                        showmailsubject.style.display = 'block';
+                        showmailbody.style.display = 'block';
                     }
                 } else {
                     const confirmUnapprove = confirm("Do you want to unapprove it?");

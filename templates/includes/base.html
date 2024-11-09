@@ -48,21 +48,26 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <ul class="navbar-nav ms-auto my-3 my-md-0 fw-bolder">
                     <li class="nav-item">
-                        <a href="{% url 'home' %}" class="active nav-link">Home</a>
+                        <a href="{% url 'home' %}" class="{% if request.path == '/' %}active nav-link{% endif %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#about" class="nav-link">About</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                        <a href="#" class="nav-link dropdown-toggle {% if request.path == '/accounts/registeruser/' or request.path == '/vendor/vendorreg/' or request.path == '/driver/driver/' %}active nav-link{% endif %}" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Registration
+                            
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a href="{% url 'registeruser' %}" class="dropdown-item">Customer reg</a></li>
-                            <li><a href="{% url 'vendorreg' %}" class="dropdown-item">Vendor Reg</a></li>
-                            <li><a href="{% url 'driverreg' %}" class="dropdown-item">Driver Reg</a></li>
+                            {% if not user.is_authenticated %}
+                            <li class="{% if '/accounts/registeruser/' == request.path %}active nav-link{% endif %}"><a href="{% url 'registeruser' %}" class="dropdown-item">Customer reg</a></li>
+                            <li class="{% if '/vendor/vendorreg/' == request.path %}active nav-link{% endif %}"><a href="{% url 'vendorreg' %}" class="dropdown-item">Vendor Reg</a></li>
+                            <li class="{% if '/driver/driver/' == request.path %}active nav-link{% endif %}"><a href="{% url 'driverreg' %}" class="dropdown-item">Driver Reg</a></li>
+                         
+                            {% else %}
                             <li><a href="" class="dropdown-item">{{user.first_name}}</a></li>
+                            {% endif %}
                         </ul>
                     </li>
 
@@ -74,9 +79,9 @@
                         <a href="#contact" class="nav-link">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                        <a href="#" class="nav-link dropdown-toggle {% if request.path == '/authentication/LoginView/' or request.path == '/customer/cdashboard/' or request.path == '/vendor/vdashboard/'  %} active nav-link {% endif %}" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Authentication
+                            Dashboard
                         </a>
 
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -98,6 +103,7 @@
 
                         </ul>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <!-- <a href="#"><i class="fa fa-bell-o"></i>2</a> -->
                         <a href="#"><i class="fas fa-envelope red_color"></i><span red_color>3</span></a>
@@ -106,6 +112,7 @@
                         <!-- <a href="#"><i class="fa fa-bell-o"></i>2</a> -->
                         <a href="#"><i class="fas fa-bell red_color"></i><span red_color>3</span></a>
                     </li>
+                    {% endif %}
 
 
 

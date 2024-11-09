@@ -11,7 +11,6 @@ from django.core.exceptions import PermissionDenied
 # Create your views here.
 
 
-
 #@login_required(login_url='LoginView')
 def get_all_vendor(request):
     
