@@ -13,6 +13,8 @@ from django.core.exceptions import PermissionDenied
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from authentication.utility import send_verification_email, newuserEmail
+from django.shortcuts import get_object_or_404
+from .models import driver
 
 
 
@@ -79,6 +81,15 @@ def ddashboard(request):
         #return HttpResponse("You are not authorised to view this page")
         raise PermissionDenied  #I added a 403.html so it would display the content inside the 403.html. otherwise it would display the default notification
     
+     
+    thedriver = get_object_or_404(driver, user= request.user)
+    dtheuser = request.user
+   
+    context ={
+        'thedriver': thedriver,
+        'dtheuser': dtheuser,
+      
+    }
     
-    return render(request, 'Driver/ddashboard.html')
+    return render(request, 'Driver/ddashboard.html', context)
     

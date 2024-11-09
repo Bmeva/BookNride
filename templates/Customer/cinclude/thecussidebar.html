@@ -1,0 +1,46 @@
+
+{% load static %}
+
+<div class="side-nav">
+
+    <div class="sidebar_user_info">
+        <div class="icon_setting"></div>
+        <div class="user_profle_side">
+            <div class="user_img"><img class="img-responsive" src="{% static 'images/user_img.jpg' %}" alt="#" />
+            </div>
+            <div class="user_info">
+                <h6>{{ user.first_name }}</h6>
+                <p><span class="online_animation"></span> Online</p>
+            </div>
+        </div>
+    </div>
+
+
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link disabled" style="color: rgb(241, 236, 236);">Side Menu</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fa fa-table purple_color2"></i>My Rooms</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-chart-pie red_color"></i>Manage Rooms</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-table blue2_color"></i>Orders</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fa fa-wrench red_color"></i>Earnings</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fa fa-file light_greenColor"></i>My statement</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fa fa-link purp_Color"></i>Manage profile</a>
+        </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-calendar-check red_color"></i>Calender</a>
+        </li>
+      
+    </ul>
+</div>

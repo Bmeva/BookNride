@@ -4,55 +4,22 @@
 {% block content %}
 
 <body>
-    <!-- side menu start -->
 
-    <div class="side-nav">
-
-        <div class="sidebar_user_info">
-            <div class="icon_setting"></div>
-            <div class="user_profle_side">
-                <div class="user_img"><img class="img-responsive" src="{% static 'images/user_img.jpg' %}" alt="#" />
-                </div>
-                <div class="user_info">
-                    <h6>{{ user.first_name }}</h6>
-                    <p><span class="online_animation"></span> Online</p>
-                </div>
-            </div>
-        </div>
+{% if thecustomer.disabled %}
+        <p style="margin-top: 8rem;">Your account has been disabled</p>
+    {% else %}
+       <!-- side menu start -->
 
 
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link disabled" style="color: rgb(241, 236, 236);">Side Menu</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-table purple_color2"></i>Dashboard</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-chart-pie red_color"></i>Charts</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-table blue2_color"></i>Tables</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-wrench red_color"></i>Components</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-file light_greenColor"></i>Pages</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fa fa-link purp_Color"></i>Links</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link"><i class="fas fa-calendar-check red_color"></i>Calender</a>
-            </li>
-        </ul>
-    </div>
 
+    {% include 'Customer/cinclude/thecussidebar.html' %}
+
+  
     <!-- side menu end -->
-
+  
     <div class="container" style="margin-top: 4rem;">
-        <div class="back_re">
+        <div class="back_re" style="background-image: url('{% static 'images/user_img.jpg' %}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+           <!-- to have only black bacground i just need to leave only the class black_re -->
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -77,6 +44,7 @@
                         <ol class="breadcrumb mb-0">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Statistics</li>
+                            <li class="breadcrumb-item active">Logout</li>
                         </ol>
                     </nav>
                 </div>
@@ -214,6 +182,8 @@
                 </div>
 
             </div>
+
+           
 
             <!--Starticstics ends-->
 
@@ -387,6 +357,9 @@
                     </div>
 
             </section>
+
+
+            {% endif %}
 
 
 

@@ -77,9 +77,11 @@ def vdashboard(request):
         raise PermissionDenied #I added a 403.html so it would display the content inside the 403.html. otherwise it would display the default notification
     
     thevendor = get_object_or_404(vendor, user= request.user)
+    duser = request.user
     
     context ={
         'thevendor': thevendor,
+        'duser': duser,
     }
     
     return render (request, 'vendor/vdashboard.html', context )
