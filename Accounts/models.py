@@ -66,9 +66,6 @@ class User(AbstractBaseUser): #there is another called AbstractUser class only a
     last_name = models.CharField(max_length=50)
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(max_length=80, unique=True)
-    phone_number = models.CharField(max_length=25, blank=True)
-    post_code = models.CharField(max_length=30, blank=True)
-    bio = models.CharField(max_length=500, blank=True)
     role = models.PositiveSmallIntegerField(choices=ROLE_CHOICE, blank=True, null=True)
 
     #REQUIRED FIELD
@@ -76,7 +73,6 @@ class User(AbstractBaseUser): #there is another called AbstractUser class only a
     last_login = models.DateTimeField(auto_now_add=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now_add=True)
-    disabled = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -119,6 +115,10 @@ class UserProfile(models.Model):
     #if you want one user to have multiple profiles then you can use foreign key ForeignKey()
     profile_picture = models.ImageField(upload_to="users/profile_pictures", blank=True, null=True)
     cover_photo = models.ImageField(upload_to="users/cover_photo", blank=True, null=True)
+    phone_number = models.CharField(max_length=25, blank=True)
+    post_code = models.CharField(max_length=30, blank=True)
+    disabled = models.BooleanField(default=False)
+    bio = models.CharField(max_length=500, blank=True)
     occupation = models.CharField(max_length=100, blank=True, null=True)
     address_line_1 = models.CharField(max_length=50, blank=True, null=True)
     address_line_2 = models.CharField(max_length=50, blank=True, null=True)

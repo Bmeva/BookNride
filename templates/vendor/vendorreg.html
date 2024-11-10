@@ -148,14 +148,7 @@
                         {% endif %}
 
                      </div>
-                     <div class="col-md-12 ">
-                        {{form.post_code}}
-                     </div>
-
-                     <div class="col-md-12">
-                        {{form.bio}}
-                     </div>
-
+                    
 
 
                   </div>
@@ -166,16 +159,7 @@
 
                   <div class="row">
 
-                     <div class="col-md-12">
-                        {{form.phone_number}}
-                        {% if form.phone_number.errors %}
-                        <ul class="errorlist">
-                           {% for error in form.phone_number.errors %}
-                           <li>{{ error }}</li>
-                           {% endfor %}
-                        </ul>
-                        {% endif %}
-                     </div>
+                     
                      <div class="col-md-12">
                         {{form.password}}
                         {% if form.password.errors %}
