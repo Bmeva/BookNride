@@ -15,6 +15,9 @@ urlpatterns = [
     
     path('admin_update_vendor/<int:pk>/', views.admin_update_vendor, name='admin_update_vendor'),
     
+    
+    path('admin_update_vendor_password/<int:pk>/', views.admin_update_vendor_password, name='admin_update_vendor_password'),
+    
       
     path('errorpage/', views.errorpage, name='errorpage'),
     

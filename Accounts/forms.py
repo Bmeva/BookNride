@@ -8,15 +8,19 @@ class userform(forms.ModelForm):
     confirm_password = forms.CharField(widget = forms.PasswordInput(attrs={'class': 'contactus', 'placeholder': 'Confirm Password'}), help_text="Your password must contain at least 8 characters.") 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password'] 
+        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'role'] 
         
         widgets = {
             'username': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Username'}),
             'first_name': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'First Name'}),
             'last_name': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Last Name'}),
             'email': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Email'}),
+            'role': forms.Select(attrs={'class': 'contactus'}), 
            
            
+        }
+        help_texts ={
+            'role': 'Please select vendor role.',
         }
       
 
@@ -27,7 +31,27 @@ class userform(forms.ModelForm):
         if password != confirm_password:
             raise forms.ValidationError('Passwords does not match')
         
+
+
+class adminuserform(forms.ModelForm):
+       
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'role'] 
         
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Username'}),
+            'first_name': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'First Name'}),
+            'last_name': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Last Name'}),
+            'email': forms.TextInput(attrs={'class': 'contactus', 'placeholder': 'Email'}),
+            'role': forms.Select(attrs={'class': 'contactus'}), 
+           
+           
+        }
+        help_texts ={
+            'role': 'Please select vendor role.',
+        }
+         
         
 
 

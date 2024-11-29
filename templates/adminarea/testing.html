@@ -1,0 +1,184 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+
+
+<!--buttons-->
+
+
+
+
+<!--  contact -->
+<div class="contact" id="contact" style="margin-top: 8rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2 class="content-text" id="contentText"> Admin Vendor Update form</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+                    {% include 'includes/alerts.html' %}
+                </div>
+            </div>
+            <div class="row">
+                <!--sidebar-->
+                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                    <ul>
+                        <li>View all Vendors</li>
+                        <li>Add new Vendor</li>
+                        <li>Approved vendors</li>
+                        <li>Unapproved vendors</li>
+                        <li>Logout</li>
+                        <li>Search</li>
+    
+                    </ul>
+                </div>
+
+
+                <div class="col-md-8 col-lg-8">
+                                           
+                        <form action="{% url 'admin_update_vendor' thevendor.pk %}" id="form1" class="main_form" method="POST"
+                            enctype="multipart/form-data">
+            
+
+                        {% csrf_token %}
+                        <div class="row">
+                            {{theuserupdate.non_field_errors}}
+                            {{theuserupdate.as_p}}
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-md-4">
+                                {{theuserupdate.first_name}}
+                                {% if theuserupdate.first_name.errors %}
+                                <ul class="errorlist">
+                                    {% for error in first_name.errors %}
+                                    <li>
+                                        {{error}}
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-4">
+                                {{theuserupdate.last_name}}
+                                {% if theuserupdate.last_name.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.errors %}
+                                    <li>
+                                        {{error}}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{theuserupdate.username}}
+                                {% if theuserupdate.username.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.username.errors %}
+                                    <li>
+                                        {{error}}
+                                    </li>
+                                    {% endfor %}
+
+
+                                </ul>
+
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-4">
+                                {{theuserupdate.email}}
+                                {% if theuserupdate.email.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.email.errors %}
+                                    <li>
+                                        {{error}}
+                                    </li>
+
+                                    {% endfor %}
+
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{theuserupdate.confirm_password}}
+                                {% if theuserupdate.confirm_password.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.confirm_password.errors %}
+                                    {{error}}
+
+                                    {% endfor %}
+                                </ul>
+
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-4">
+                                {{theuserupdate.password}}
+                                {% if theuserupdate.password.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.password.errors %}
+                                    <li>
+                                        {{error}}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+
+
+                                {% endif %}
+
+                            </div>
+                           
+                        </div>
+                     -->
+
+
+                        <button type="submit" class="send_btn">submiit</button>
+                        </form>
+
+                  
+                    
+                </div>
+
+
+
+            </div>
+
+          
+                
+
+              
+               
+
+                    <!-- {{ theuserupdate.as_p}} -->
+
+                   
+
+    </div>
+    </div>
+
+
+
+    {% endblock %}

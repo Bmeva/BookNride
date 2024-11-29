@@ -34,19 +34,34 @@
 
             <form action="{% url 'admin_update_vendor' thevendor.pk %}" id="form1" class="main_form" method="POST"
                 enctype="multipart/form-data">
-                <div class="col-md-12">
-                    <div class="titlepage">
-                        <h3>Update Vendor </h3>
-                        <h3>Back</h3>
-                    </div>
-                </div>
-                {% csrf_token %}
-                {{ theuserupdate.non_field_errors }}
                 <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="titlepage">
+                            <h3>Use the form below to Update Vendor </h3>
+                            <h3><a href="{% url 'get_all_vendor' %}">Back</a></h3>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="titlepage">
+                            <h3><a href="{% url 'admin_update_vendor_password' thevendor.pk %}">Update Vendor Password only</a></h3>
+                           
+                        </div>
+                    </div>
+
+
+                </div>
+              
+                {% csrf_token %}
+                {{ theprofileupdate.non_field_errors }}
+                <div class="row">  
                     <div class="col-md-6">
 
                         <div class="row">
-                            <div class="col-md-12 ">
+                            
+
+                            <div class="col-md-6 ">
                                 {{theuserupdate.first_name}}
                                 {% if theuserupdate.first_name.errors %}
                                 <ul class="errorlist">
@@ -56,7 +71,7 @@
                                 </ul>
                                 {% endif %}
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6 ">
                                 {{theuserupdate.last_name}}
                                 {% if theuserupdate.last_name.errors %}
                                 <ul class="errorlist">
@@ -66,9 +81,7 @@
                                 </ul>
                                 {% endif %}
                             </div>
-
-
-                            <div class="col-md-12">
+                            <div class="col-md-6 ">
                                 {{theuserupdate.username}}
                                 {% if theuserupdate.username.errors %}
                                 <ul class="errorlist">
@@ -78,7 +91,7 @@
                                 </ul>
                                 {% endif %}
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6 ">
                                 {{theuserupdate.email}}
                                 {% if theuserupdate.email.errors %}
                                 <ul class="errorlist">
@@ -87,18 +100,88 @@
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
-
                             </div>
-
                             <div class="col-md-12 ">
-                                {{theuserupdate.post_code}}
+                                {{theprofileupdate.post_code}}
+                                {% if theprofileupdate.post_code.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.post_code.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
                             </div>
+                            <div class="col-md-12">
+                                {{theprofileupdate.phone_number}}
+                                {% if theprofileupdate.phone_number.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.phone_number.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
 
                             <div class="col-md-12">
-                                {{theuserupdate.bio}}
+                                {{theprofileupdate.bio}}
+                                {% if theprofileupdate.bio.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.bio.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                            
+
+                            <div class="col-md-6">
+                                {{theprofileupdate.address_line_2}}
+                                {% if theprofileupdate.address_line_2.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.address_line_2.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                            
+                            <div class="col-md-6">
+                                {{theprofileupdate.address_line_1}}
+                                {% if theprofileupdate.address_line_1.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.address_line_1.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
                             </div>
 
+                           
 
+                            <div class="col-md-6">
+                                {{theprofileupdate.state}}
+                                {% if theprofileupdate.state.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.state.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-6">
+                                {{theprofileupdate.city}}
+                                {% if theprofileupdate.city.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.city.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+        
 
                         </div>
 
@@ -109,37 +192,51 @@
                         <div class="row">
 
                             <div class="col-md-12">
-                                {{theuserupdate.phone_number}}
-                                {% if theuserupdate.phone_number.errors %}
+                                {{theprofileupdate.pin_code}}
+                                {% if theprofileupdate.pin_code.errors %}
                                 <ul class="errorlist">
-                                    {% for error in theuserupdate.phone_number.errors %}
+                                    {% for error in theprofileupdate.pin_code.errors %}
                                     <li>{{ error }}</li>
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
                             </div>
-                            <div class="col-md-12">
-                                {{theuserupdate.password}}
-                                {% if theuserupdate.password.errors %}
+                            <div class="col-md-6">
+                                {{theprofileupdate.country}}
+                                {% if theprofileupdate.country.errors %}
                                 <ul class="errorlist">
-                                    {% for error in theuserupdate.password.errors %}
+                                    {% for error in theprofileupdate.country.errors %}
                                     <li>{{ error }}</li>
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
-                            </div>
-                            <div class="col-md-12">
-                                {{theuserupdate.confirm_password}}
-                                {% if theuserupdate.confirm_password.errors %}
-                                <ul class="errorlist">
-                                    {% for error in theuserupdate.confirm_password.errors %}
-                                    <li>{{ error }}</li>
-                                    {% endfor %}
-                                </ul>
-                                {% endif %}
-                            </div>
 
+                            </div>
+                            <div class="col-md-12">
+                                {{theprofileupdate.occupation}}
+                                {% if theprofileupdate.occupation.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.occupation.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
+                            <div class="col-md-12">
+                                {{theprofileupdate.state}}
+                                {% if theprofileupdate.state.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theprofileupdate.state.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+
+                            </div>
                            
+
+                            
                             <div class="col-md-12">
                                 {{thevendorupdate.VendorName}}
                                 {% if thevendorupdate.VendorName.errors %}
@@ -151,7 +248,7 @@
                                 {% endif %}
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 {% if thevendorupdate.IsApproved.help_text %}
                                 <p><small class="form-text text-muted">{{ thevendorupdate.IsApproved.help_text}}</small>
                                 </p>
@@ -167,23 +264,22 @@
                                 {% endif %}
 
                             </div>
-
-
-                            <div class="col-md-12">
-                                {% if theuserupdate.disabled.help_text %}
-                                <p><small class="form-text text-muted">{{ theuserupdate.disabled.help_text}}</small>
+                            <div class="col-md-6">
+                                {% if theprofileupdate.disabled.help_text %}
+                                <p><small class="form-text text-muted">{{ theprofileupdate.disabled.help_text}}</small>
                                 </p>
                                 {% endif %}
-                                <input type="checkbox" name="disabled" id="disabledvendor" {% if theuserupdate.disabled.value %} checked{% endif %}>
+                                <input type="checkbox" name="disabled" id="disabledvendor" {% if theprofileupdate.disabled.value %} checked{% endif %}>
                               
-                                {% if theuserupdate.disabled.errors %}
+                                {% if theprofileupdate.disabled.errors %}
                                 <ul class="errorlist">
-                                    {% for error in theuserupdate.disabled.errors %}
+                                    {% for error in theprofileupdate.disabled.errors %}
                                     <li>{{ error }}</li>
                                     {% endfor %}
                                 </ul>
                                 {% endif %}
                             </div>
+          
 
                             <div class="col-md-12" style="display: none;" id="showmailsubjecttextbox">
                                 {% if thevendorupdate.mail_approval_subject.help_text %}
@@ -218,6 +314,21 @@
                                 {% endif %}
 
                             </div>
+                            
+                            <div class="col-md-6">
+                                {% if theuserupdate.role.help_text %}
+                                <p><small class="form-text text-muted">{{ theuserupdate.role.help_text}}</small>
+                                </p>
+                                {% endif %}
+                                {{theuserupdate.role}}
+                                {% if theuserupdate.role.errors %}
+                                <ul class="errorlist">
+                                    {% for error in theuserupdate.role.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
                            
 
                             <div class="col-md-6">
@@ -229,6 +340,22 @@
                                 {% if thevendorupdate.vendorType.errors %}
                                 <ul class="errorlist">
                                     {% for error in thevendorupdate.vendorType.errors %}
+                                    <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+
+                            
+                            <div class="col-md-6">
+                                {% if thevendorupdate.VendorLicense.help_text %}
+                                <p><small class="form-text text-muted">{{ thevendorupdate.VendorLicense.help_text}}</small>
+                                </p>
+                                {% endif %}
+                                {{thevendorupdate.VendorLicense}}
+                                {% if thevendorupdate.VendorLicense.errors %}
+                                <ul class="errorlist">
+                                    {% for error in thevendorupdate.VendorLicense.errors %}
                                     <li>{{ error }}</li>
                                     {% endfor %}
                                 </ul>
