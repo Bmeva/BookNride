@@ -46,6 +46,7 @@ def vendorreg(request):
             newuserEmail(request, user)
             
             messages.success(request, "Your account has been registered succesfully, please wait for approval")
+            #you can also use message without error or warning or info just message = "Please enter a search term."
             return redirect('LoginView')
 
 

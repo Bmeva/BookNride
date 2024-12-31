@@ -24,6 +24,10 @@ urlpatterns = [
     
     path('get_single_vendor/<int:pk>/', views.get_single_vendor, name='get_single_vendor'),
     
+    path('searchvendor/', views.searchvendor, name='searchvendor'),
+    
+    
+    
     
  
     

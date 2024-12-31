@@ -7,6 +7,7 @@ from Accounts.forms import userform, Profileform, adminuserform
 from Accounts.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
+from django.db.models import Q
 
 # Create your views here.
 
@@ -127,6 +128,30 @@ def admin_update_vendor_password(request, pk):
     }
     
     return render(request, 'adminarea/admin_update_vpassword.html', context)
+
+def searchvendor(request):
+    thesearchword = request.GET.get('searchword', '').strip()
+    if thesearchword:
+           
+    
+        thesearch = vendor.objects.filter(Q(VendorName__icontains = thesearchword)
+                                      | Q(VendorSlug__icontains = thesearchword)
+                                      | Q(user__email__icontains = thesearchword))
+        message = None
+        
+    else:
+        thesearch = vendor.objects.none()
+        message = "Please enter search word"
+    
+    context = {
+        'thesearch': thesearch,
+        'message': message
+    }
+    
+    
+    
+    return render(request, 'adminarea/search_vendor.html', context )
+
 
 #on the userform i have already compared the password and confirm password otherwise i would 
 #have used this approach below

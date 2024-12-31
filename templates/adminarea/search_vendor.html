@@ -8,6 +8,11 @@
     <div class="container" style="margin-top: 8rem;">
         {% include 'includes/alerts.html' %}
         <div class="row">
+            <div>
+                {% if message %}
+                {{message}}
+                {% endif %}
+            </div>
             <!--sidebar-->
             <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
                 <ul>
@@ -35,6 +40,8 @@
 
 
             <!--sidebarend-->
+           
+      
 
 
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
@@ -58,23 +65,23 @@
                     </thead>
                     <tbody>
 
-                        {% for ven in allvendor %}
+                        {% for thevendors in thesearch %}
                         <tr class="table-danger">
                             <th scope="row">{{ forloop.counter }}</th>
-                            <td>{{ven.user.first_name}}</td>
-                            <td>{{ven.user}}</td>
-                            <td><a href="{% url 'get_single_vendor' ven.pk %}"
-                                    style="text-decoration: underline !important;">{{ven.VendorName}}</a></td>
-                            <td>{{ven.vendorType}}</td>
-                            <td>{{ven.IsApproved}}</td>
-                            <td>{{ven.CreatedAt}}</td>
-                            <th scope="col"><a href="{% url 'admin_update_vendor' ven.pk %}"><i
+                            <td>{{thevendors.user.first_name}}</td>
+                            <td>{{thevendors.user}}</td>
+                            <td><a href="{% url 'get_single_vendor' thevendors.pk %}"
+                                    style="text-decoration: underline !important;">{{thevendors.VendorName}}</a></td>
+                            <td>{{thevendors.vendorType}}</td>
+                            <td>{{thevendors.IsApproved}}</td>
+                            <td>{{thevendors.CreatedAt}}</td>
+                            <th scope="col"><a href="{% url 'admin_update_vendor' thevendors.pk %}"><i
                                         class="fas fa-edit"></i></a>
                             </th>
-                            <th scope="col"><a href="{% url 'delete_vendor' ven.pk %}"
+                            <th scope="col"><a href="{% url 'delete_vendor' thevendors.pk %}"
                                     onclick=" return confirmDelete()"><i class="fas fa-trash"></i></a>
                             </th>
-                            <th scope="col"><a href="{% url 'get_single_vendor' ven.pk %}">View</a></i></th>
+                            <th scope="col"><a href="{% url 'get_single_vendor' thevendors.pk %}">View</a></i></th>
                         </tr>
                         {% empty %}
                         <p>No vendor found</p>
