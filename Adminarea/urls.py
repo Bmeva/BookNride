@@ -1,10 +1,14 @@
-from django.urls import path
+from django.urls import path, include
 from .import views
 
 
 urlpatterns = [
     
-      
+    path('customeradmin/', include('Adminarea.customer.urls')),
+    
+    path('driveradmin/', include('Adminarea.driver.urls')),
+    
+ 
     path('', views.get_all_vendor, name='get_all_vendor'),
  
          
@@ -25,11 +29,6 @@ urlpatterns = [
     path('get_single_vendor/<int:pk>/', views.get_single_vendor, name='get_single_vendor'),
     
     path('searchvendor/', views.searchvendor, name='searchvendor'),
-    
-    
-    
-    
- 
     
  
     

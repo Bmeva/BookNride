@@ -14,7 +14,7 @@ Vendor_type = (
 
 class vendor(models.Model):
     user = models.OneToOneField(User, related_name='user', on_delete=models.CASCADE)
-    User_Profile = models.OneToOneField(UserProfile, related_name='theuserProfile', on_delete=models.CASCADE)
+    User_Profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     VendorName = models.CharField(max_length=50)
     vendorType = models.CharField(max_length=50, choices=Vendor_type, default='Individual')
        

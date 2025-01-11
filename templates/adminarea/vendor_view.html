@@ -8,34 +8,12 @@
     <div class="container" style="margin-top: 8rem;">
         {% include 'includes/alerts.html' %}
         <div class="row">
+       
             <!--sidebar-->
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <ul>
-                    <li>
-                        
-                        <form action="{% url 'searchvendor' %}" method="get">
-                            {% csrf_token %}
-                            <input type="text" placeholder="Search" name="searchword" id="searchword">
-
-                            <button type="submit">Submit</button>
-                   
-                    </form>
-                    </li>
-
-                    <li>View all Vendors</li>
-                    <li>Add new Vendor</li>
-                    <li>Approved vendors</li>
-                    <li>Unapproved vendors</li>
-                    <li>Logout</li>
-                    
-
-                </ul>
-            </div>
-
-
-
+            
+            {% include 'includes/adminsidebar.html' %}
             <!--sidebarend-->
-
+           
 
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
                 <table class="table">
@@ -47,7 +25,7 @@
                             <th scope="col">Vendor name</th>
                             <th scope="col">Vendor Type</th>
                             <th scope="col">Approved?</th>
-                            <th scope="col">Registered on</th>
+                            <th scope="col">Country</th>
                             <th scope="col"> on</th>
                             <th scope="col"> on</th>
                             <th scope="col"> on</th>
@@ -67,7 +45,7 @@
                                     style="text-decoration: underline !important;">{{ven.VendorName}}</a></td>
                             <td>{{ven.vendorType}}</td>
                             <td>{{ven.IsApproved}}</td>
-                            <td>{{ven.CreatedAt}}</td>
+                            <td>{{ven.User_Profile.country}}</td>
                             <th scope="col"><a href="{% url 'admin_update_vendor' ven.pk %}"><i
                                         class="fas fa-edit"></i></a>
                             </th>

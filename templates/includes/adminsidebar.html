@@ -1,0 +1,61 @@
+<div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+    <ul>
+        <li>
+            
+            <form action="{% url 'searchvendor' %}" method="get">
+                {% csrf_token %}
+                <input type="text" placeholder="{{thesearchword}}" name="searchword" id="searchword" style="margin-bottom: 0.5rem;">
+
+                <button type="submit" class="reg_btn" style="margin-bottom: 0.5rem;">Submit</button>
+       
+        </form>
+        </li>
+                         
+        <li>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Vendors
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>View All vendors</strong>
+                      <p><strong>Add new</strong></p>
+                      <p><strong>Approve vendors</strong></p>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Customers
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>View All Customers</strong>
+                      <p><strong>Add new</strong></p>
+                      <p><strong>Approve vendors</strong></p>
+                     </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                     Drivers
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <strong>View All Drivers</strong>
+                    <p><strong>Add new</strong></p>
+                    <p><strong>Approve vendors</strong></p>
+                </div>
+              </div>
+        </li>
+         <li class="content-text"><input type="button" class="btn" style="color: brown;" value="Logout"></li>
+     
+        
+
+    </ul>
+</div>

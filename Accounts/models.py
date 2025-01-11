@@ -111,7 +111,8 @@ class User(AbstractBaseUser): #there is another called AbstractUser class only a
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank = True, null = True)# to make user have only one profile. 
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank = True, null = True, related_name='userprofile')# to make user have only one profile. 
+    #Without adding a related name django would by default add a related name called userprofile
     #if you want one user to have multiple profiles then you can use foreign key ForeignKey()
     profile_picture = models.ImageField(upload_to="users/profile_pictures", blank=True, null=True)
     cover_photo = models.ImageField(upload_to="users/cover_photo", blank=True, null=True)

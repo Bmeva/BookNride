@@ -25,9 +25,12 @@ def get_all_vendor(request):
         
         
         allvendor = vendor.objects.all()
+        thesearchword = request.GET.get('searchword', '').strip() # i am trying to get the search word becouse i 
+        #created an admin sidebar which is also used in the search_vendor.html. so i want the search word to display everywhere the admin sidebar is used
         
         context ={
-            'allvendor': allvendor
+            'allvendor': allvendor,
+            'thesearchword': thesearchword
     }
     return render(request, 'adminarea/vendor_view.html', context)
 
@@ -142,10 +145,12 @@ def searchvendor(request):
     else:
         thesearch = vendor.objects.none()
         message = "Please enter search word"
+        #messages.info(request, 'Please enter search word')
     
     context = {
         'thesearch': thesearch,
-        'message': message
+        'message': message,
+        'thesearchword': thesearchword
     }
     
     
