@@ -1,0 +1,371 @@
+{% extends 'includes/base.html' %}
+
+{% load static %}
+{% block content %}
+
+<body>
+
+   
+    <!-- side menu start -->
+
+
+    {% include 'vendor/vinclude/thevensidebar.html' %}
+
+  
+    <!-- side menu end -->
+  
+    <div class="container" style="margin-top: 4rem;">
+        {% if theven.User_Profile.cover_photo %}
+        <div class="back_re" style="background-image: url('{{theven.User_Profile.cover_photo.url}}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        {% else %}
+        <div class="back_re" style="background-size: cover; background-position: center; background-repeat: no-repeat;">
+          {% endif %}
+            <!-- to have only black bacground i just need to leave only the class black_re -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="title">
+                            <h2>Vendor Dashboard</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- main content -->
+
+    <div class="main-content"> <!-- THERE is a css class for main-content-->
+        <div class="container-fluid">
+            <div class="col-12 pt-">
+                <div class="mt-1 py-1 px-5 bg-white shadow-sm rounded-3">
+                    <nav style="--bs-breadcrumb-divider: '>' ;" aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Statistics</li>
+                            <li class="breadcrumb-item active">Logout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="row">
+
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+    
+                        {% include 'includes/alerts.html' %}
+                    </div>
+                </div>
+            </div>
+            <form action="{% url 'vprofilemgt' %}" method="post" enctype="multipart/form-data" class="main_form">
+                {% csrf_token %}
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="titlepage">
+                            <h3>Use the form below to Update your vendor info </h3>
+                            <h3><a href="">Back</a></h3>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-6">
+                        <div class="titlepage">
+                            <h3><a href="">Update Vendor Password only</a></h3>
+                           
+                        </div>
+                    </div>
+
+
+                </div>
+              
+               
+                {{ thevendorupdate.non_field_errors }}
+                 
+                {{ theprofileupdate.non_field_errors }}
+                 
+                {{ theuserupdate.non_field_errors }}
+
+            <div class="row">  
+                <div class="col-md-12">
+
+                    <div class="row">
+                            
+                        <form action="{% url 'vprofilemgt' %}" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="col-md-3 ">
+                                    {{thevendorupdate.VendorName}}
+                                
+                                    {% if thevendorupdate.VendorName.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in thevendorupdate.VendorName.errors %}
+                                        <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-3">
+                                    {{thevendorupdate.vendorType}}
+                                    {% if thevendorupdate.vendorType.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in thevendorupdate.vendorType.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-3">
+                                    {{theprofileupdate.pin_code}}
+                                
+                                    {% if theprofileupdate.pin_code.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.pin_code.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    {{theprofileupdate.state}}
+                                
+                                    {% if theprofileupdate.state.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.state.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                            
+
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {{theuserupdate.first_name}}
+                                </div>
+                                <div class="col-md-3">
+                                    {{theuserupdate.last_name}}
+                                </div>
+                                <div class="col-md-3">
+                                    {{theuserupdate.username}}
+                                </div>
+                                <div class="col-md-3">
+                                    {{theuserupdate.email}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {{theprofileupdate.phone_number}}
+                                    
+                                    {% if theprofileupdate.phone_number.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.phone_number.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    {{theprofileupdate.post_code}}
+                                
+                                    {% if theprofileupdate.post_code.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.post_code.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    {{theprofileupdate.occupation}}
+                                
+                                    {% if theprofileupdate.occupation.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.occupation.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                                <div class="col-md-3">
+                                    {{theprofileupdate.address_line_1}}
+                                
+                                    {% if theprofileupdate.address_line_1.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.address_line_1.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-3">
+                                    {{theprofileupdate.address_line_2}}
+                                
+                                    {% if theprofileupdate.address_line_2.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.address_line_2.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                            
+                                    <div class="col-md-3">
+                                        {{theprofileupdate.country}}
+                                    
+                                        {% if theprofileupdate.country.errors %}
+                                        <ul class="errorlist">
+                                            {% for error in theprofileupdate.country.errors %}
+                                            <li>{{error}}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+        
+        
+                                    </div>
+                                <div class="col-md-6">
+                                    {{theprofileupdate.bio}}
+                                    
+                                    {% if theprofileupdate.bio.errors %}
+                                    <ul class="errorlist">
+                                        {% for error in theprofileupdate.bio.errors %}
+                                        <li>{{error}}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+
+
+                                </div>
+                                
+                            
+                            </div>
+
+                
+                                
+                                <div class="row" style="margin-bottom: 1rem;">
+                                    
+                                        <div class="col-md-6">
+                                            <div class="user_img">
+                                                <img class="img-responsive" src="{{ theven.User_Profile.cover_photo.url }}" alt="Profile image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+                                            </div>
+                                            {{theprofileupdate.cover_photo}}
+                                            {% if theprofileupdate.cover_photo.help_text %}
+                                            <p><small>{{theprofileupdate.cover_photo.help_text}}</small></p>
+                                            {% else %}
+                                            <p><small>You can update your cover picture here</small></p>
+                                            {% endif %}
+                                            {% if theprofileupdate.cover_photo.errors %}
+                                            <ul class="errorlist">
+                                                {% for error in theprofileupdate.cover_photo.errors %}
+                                                <li>{{error}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% endif %}
+            
+            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="user_img">
+                                            <img id="profilePreview" class="img-responsive" src="{{ theven.User_Profile.profile_picture.url }}" alt="Profile image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+                                            </div>
+                                            {{theprofileupdate.profile_picture}}
+                                            {% if theprofileupdate.profile_picture.help_text %}
+                                            <p><small>{{theprofileupdate.profile_picture.help_text}}</small></p>
+                                            {% else %}
+                                            <p><small>You can update your profile picture here</small></p>
+                                            {% endif %}
+                                            {% if theprofileupdate.profile_picture.errors %}
+                                            <ul class="errorlist">
+                                                {% for error in theprofileupdate.profile_picture.errors %}
+                                                <li>{{error}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% endif %}
+            
+            
+                                        </div>                                   
+
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-md-6" >
+                                            {{thevendorupdate.VendorLicense}}
+                                            
+                                            <p><small>Update your vendor license</small></p>
+                                        {% if thevendorupdate.VendorLicense.errors %}
+                                            <ul class="errorlist">
+                                                {% for error in thevendorupdate.VendorLicense.errors %}
+                                                <li>{{error}}</li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% endif %}
+                                        
+                                            
+                                        </div>
+                                        
+                                    
+                                        <div class="col-md-2">
+
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="submit" value="Update" class="send_btn">
+                                        </div>
+                                        </div>
+                                    </div>
+                        </form>
+                            
+
+                     
+                    </div>
+                </div>
+                          
+
+
+            </form>
+
+
+            <div class="row">
+                <div class="col-lg-12 py-3">
+                    {% include 'includes/footer.html' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    
+
+</body>
+
+</html>
+
+{% endblock %}

@@ -9,6 +9,10 @@ urlpatterns = [
       
     path('vdashboard/', views.vdashboard, name='vdashboard'),
     
+     path('vprofilemgt/', views.vprofilemgt, name='vprofilemgt'),
+     
+     
+    
      
   
     

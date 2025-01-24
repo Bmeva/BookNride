@@ -30,8 +30,7 @@
                     {% include 'includes/alerts.html' %}
                 </div>
             </div>
-
-
+          
             <form action="{% url 'admin_update_vendor' thevendor.pk %}" id="form1" class="main_form" method="POST"
                 enctype="multipart/form-data">
                 <div class="row">
@@ -63,6 +62,7 @@
 
                             <div class="col-md-6 ">
                                 {{theuserupdate.first_name}}
+                             
                                 {% if theuserupdate.first_name.errors %}
                                 <ul class="errorlist">
                                     {% for error in theuserupdate.first_name.errors %}
@@ -71,6 +71,8 @@
                                 </ul>
                                 {% endif %}
                             </div>
+                          
+
                             <div class="col-md-6 ">
                                 {{theuserupdate.last_name}}
                                 {% if theuserupdate.last_name.errors %}

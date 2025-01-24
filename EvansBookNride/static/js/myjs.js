@@ -12,6 +12,29 @@ $(document).ready(function () { //This function is used to close the alert butto
 });
 
 
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const profileInput = document.querySelector("input[name='profile_picture']"); //profile_picture is gotten from theprofileupdate.profile_picture
+    const profilePreview = document.getElementById("profilePreview"); 
+
+    profileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0]; // Get the selected file
+        if (file) {
+            const reader = new FileReader(); // Create a FileReader instance
+
+            // When the file is loaded, update the image src
+            reader.onload = function (e) {
+                profilePreview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', function () { //I used this on the customer registration page to dispaly various forms
     var showForm1Button = document.getElementById('showForm1');
     var showForm2Button = document.getElementById('showForm2');

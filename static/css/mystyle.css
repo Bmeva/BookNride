@@ -374,6 +374,26 @@ button {
      right: 30px;
 }
 
+.book_btn2 {
+     background-color: #605c5c;
+     max-width: 189px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 10px 0;
+     border-radius: 50px;
+     color: #fff;
+     font-size: 20px;
+     transition: ease-in 0.5s;
+     display: block;
+}
+
+.book_btn2:hover {
+     background-color: #fff;
+     color: #fe0000;
+     transition: ease-in 0.5s;
+}
+
+
 .book_btn {
      background-color: #fe0000;
      max-width: 189px;

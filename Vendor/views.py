@@ -13,7 +13,9 @@ from authentication.utility import send_verification_email
 from authentication.utility import newuserEmail
 from django.shortcuts import get_object_or_404
 from .models import vendor
-
+from Accounts.forms import Profileform
+from django.http import Http404
+from Accounts.forms import user_form_withoutpassword
 # Create your views here.
 
 #return HttpResponse("This is the user registration page")
@@ -82,6 +84,7 @@ def vdashboard(request):
     thevendor = get_object_or_404(vendor, user= request.user)
     
     duser = thevendor.User_Profile
+    #duser = UserProfile.objects.get(user = request.user) this would also work
     
     context ={
         'thevendor': thevendor,
@@ -148,3 +151,64 @@ def vdashboard(request):
 #    return render(request, 'accounts/userReg.html', context)
 
 
+
+    
+   
+
+
+def vprofilemgt(request):
+    try:
+             
+        theuser = request.user
+        theven = vendor.objects.get(user = theuser)
+        thvenprofile = theven.User_Profile
+    except User.DoesNotExist:
+        return redirect('LoginView')
+    except vendor.DoesNotExist:
+        raise Http404('your vendor account no longer exist')
+    except UserProfile.DoesNotExist:
+        raise Http404('your profile no longer exist')
+        
+   
+        messages.error(request, 'user profile does not exist')
+        return redirect(request, 'vdashboard')
+ 
+    if request.method == 'POST':
+        thevendorupdate = vendorform(request.POST, request.FILES, instance=theven)
+        theprofileupdate = Profileform(request.POST, request.FILES, instance=thvenprofile)
+        theuserupdate = user_form_withoutpassword(request.POST, request.FILES, instance=theuser)
+      
+        if thevendorupdate.is_valid() and theprofileupdate.is_valid() and theuserupdate.is_valid():
+            user = theuserupdate.save(commit=False)
+            user.role = User.VENDOR
+            
+            thevendorsave = thevendorupdate.save(commit=False)
+            thevendorsave.IsApproved = True
+            
+            
+            user.save()
+            thevendorupdate.save()
+            theprofileupdate.save()
+            
+            
+            messages.success(request, 'Your details have been updated')
+            return redirect('vprofilemgt')
+    else:
+        thevendorupdate = vendorform(instance=theven)
+        theprofileupdate = Profileform(instance=thvenprofile)
+        theuserupdate = user_form_withoutpassword(instance=theuser)
+       
+       
+    context = {
+        'thevendorupdate': thevendorupdate,
+        'theprofileupdate': theprofileupdate,
+        'theuserupdate': theuserupdate,
+        'theven': theven,
+        
+       
+    }
+    
+    return render(request, 'vendor/vprofilemgt.html', context)
+#in this code i used try but its not necesary bcos they must have logged into their account and 
+#authenticated before they can see the dashboard. However another admiin can delete an account so
+#the try block becomes neccesary

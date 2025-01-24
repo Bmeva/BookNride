@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from Vendor.models import vendor
 from Vendor.forms import vendorform
-from Accounts.forms import userform, Profileform, adminuserform
+from Accounts.forms import userform, Profileform, user_form_withoutpassword
 from Accounts.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
@@ -73,7 +73,7 @@ def admin_update_vendor(request, pk):
         thevendorupdate = vendorform(request.POST, request.FILES, instance=thevendor)
         theprofileupdate = Profileform(request.POST, request.FILES, instance=thevenprofile)
        
-        theuserupdate = adminuserform(request.POST, request.FILES, instance=thevuser)
+        theuserupdate = user_form_withoutpassword(request.POST, request.FILES, instance=thevuser)
         #i used another userform that excludes the password bcos on the page i dont want admin to update the password
         
         if thevendorupdate.is_valid() and theprofileupdate.is_valid() and theuserupdate.is_valid():
@@ -85,7 +85,7 @@ def admin_update_vendor(request, pk):
     else:
         thevendorupdate = vendorform(instance=thevendor)
         theprofileupdate = Profileform(instance=thevenprofile)
-        theuserupdate = userform(instance=thevuser)
+        theuserupdate = user_form_withoutpassword(instance=thevuser)
         
     context = {
         'thevendor': thevendor,

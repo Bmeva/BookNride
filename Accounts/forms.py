@@ -33,7 +33,7 @@ class userform(forms.ModelForm):
         
 
 
-class adminuserform(forms.ModelForm):
+class user_form_withoutpassword(forms.ModelForm):
        
     class Meta:
         model = User

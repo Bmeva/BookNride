@@ -10,6 +10,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib import messages
+from django.http import HttpResponse
 
 
 
@@ -28,7 +29,8 @@ def myaccountdashboard(request):
     
     
     else:
-        raise PermissionDenied
+        #raise PermissionDenied
+        return HttpResponse("You are not authorised to view this page")
     
     
 

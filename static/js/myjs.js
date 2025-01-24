@@ -12,7 +12,29 @@ $(document).ready(function () { //This function is used to close the alert butto
 });
 
 
-document.addEventListener('DOMContentLoaded', function () { //I used this on the vendor registration page to dispaly various forms
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const profileInput = document.querySelector("input[name='profile_picture']"); //profile_picture is gotten from theprofileupdate.profile_picture
+    const profilePreview = document.getElementById("profilePreview"); 
+
+    profileInput.addEventListener("change", function (event) {
+        const file = event.target.files[0]; // Get the selected file
+        if (file) {
+            const reader = new FileReader(); // Create a FileReader instance
+
+            // When the file is loaded, update the image src
+            reader.onload = function (e) {
+                profilePreview.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file); // Read the file as a data URL
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () { //I used this on the customer registration page to dispaly various forms
     var showForm1Button = document.getElementById('showForm1');
     var showForm2Button = document.getElementById('showForm2');
     var showForm3Button = document.getElementById('showForm3');
@@ -22,18 +44,21 @@ document.addEventListener('DOMContentLoaded', function () { //I used this on the
 
     showForm1Button.addEventListener('click', function () {
         form1.style.display = 'block';
+        //document.getElementById('contentText').textContent = 'You clicked the Customer button.'; I can also use this to change the Title text but i used the jQuery code below
         form2.style.display = 'none';
         form3.style.display = 'none';
     });
 
     showForm2Button.addEventListener('click', function () {
         form2.style.display = 'block';
+        //document.getElementById('contentText').textContent = 'You clicked the Vendor button.'; I can also use this to change the Title text but i used the jQuery code below
         form1.style.display = 'none';
         form3.style.display = 'none';
 
     });
     showForm3Button.addEventListener('click', function () {
         form3.style.display = 'block';
+        //document.getElementById('contentText').textContent = 'You clicked the Driver button.'; I can also use this to change the Title text but i used the jQuery code below
         form1.style.display = 'none';
         form2.style.display = 'none';
 
@@ -41,6 +66,23 @@ document.addEventListener('DOMContentLoaded', function () { //I used this on the
 
 
 });
+
+//this is jQuery code to change the title on the vendor registration page
+$(document).ready(function () {
+    $('#showForm1').click(function () {
+        $('#contentText').text('You clicked the Customer reg button.');
+    });
+
+    $('#showForm2').click(function () {
+        $('#contentText').text('You clicked the Vendor reg button.');
+    });
+
+    $('#showForm3').click(function () {
+        $('#contentText').text('You clicked the Driver reg button.');
+    });
+});
+
+
 
 // Chart 1
 var ctx1 = document.getElementById('myChart1').getContext('2d');

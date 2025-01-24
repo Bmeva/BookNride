@@ -6,7 +6,11 @@
     <div class="sidebar_user_info">
         <div class="icon_setting"></div>
         <div class="user_profle_side">
+            {% if theven.User_Profile.profile_picture %}
+            <div class="user_img"><img class="img-responsive" src="{{ theven.User_Profile.profile_picture.url }}" alt="Profile image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" />
+            {% else %}
             <div class="user_img"><img class="img-responsive" src="{% static 'images/user_img.jpg' %}" alt="#" />
+            {% endif %}
             </div>
             <div class="user_info">
                 <h6>{{ user.first_name }}</h6>
@@ -18,17 +22,19 @@
 
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link disabled" style="color: rgb(241, 236, 236);">Side Menu</a>
+            <a class="nav-link" style="color: rgb(241, 236, 236);" href="{% url 'vdashboard' %}">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa fa-table purple_color2"></i>My Rooms</a>
+            <a href="#" class="nav-link"><i class="fa fa-table purple_color2"></i>Accomodation</a>
         </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fas fa-chart-pie red_color"></i>Manage Rooms</a>
-        </li>
+      
         <li class="nav-item">
             <a href="#" class="nav-link"><i class="fas fa-table blue2_color"></i>Orders</a>
         </li>
+        <li class="nav-item">
+            <a href="#" class="nav-link"><i class="fas fa-calendar-check red_color"></i>Food menu</a>
+        </li>
+      
         <li class="nav-item">
             <a href="#" class="nav-link"><i class="fa fa-wrench red_color"></i>Earnings</a>
         </li>
@@ -36,11 +42,13 @@
             <a href="#" class="nav-link"><i class="fa fa-file light_greenColor"></i>My statement</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fa fa-link purp_Color"></i>Manage profile</a>
+            <a href="{% url 'vprofilemgt' %}" class="nav-link"><i class="fa fa-link purp_Color"></i>Manage profile</a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link"><i class="fas fa-calendar-check red_color"></i>Calender</a>
+            <a href="#" class="nav-link"><i class="fas fa-chart-pie red_color"></i>Change Password</a>
         </li>
-      
+       
+       
+       
     </ul>
 </div>
