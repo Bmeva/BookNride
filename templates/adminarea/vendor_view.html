@@ -39,9 +39,11 @@
                         {% for ven in allvendor %}
                         <tr class="table-danger">
                             <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ven.user.id}}</td>
+                           
                             <td>{{ven.user.first_name}}</td>
                             <td>{{ven.user}}</td>
-                            <td><a href="{% url 'get_single_vendor' ven.pk %}"
+                            <td><a href=""
                                     style="text-decoration: underline !important;">{{ven.VendorName}}</a></td>
                             <td>{{ven.vendorType}}</td>
                             <td>{{ven.IsApproved}}</td>
@@ -52,7 +54,10 @@
                             <th scope="col"><a href="{% url 'delete_vendor' ven.pk %}"
                                     onclick=" return confirmDelete()"><i class="fas fa-trash"></i></a>
                             </th>
-                            <th scope="col"><a href="{% url 'get_single_vendor' ven.pk %}">View</a></i></th>
+                            <th scope="col"><a href="{% url 'get_single_vendor' ven.pk %}">View</a></th>
+                        </th>
+                          
+                           
                         </tr>
                         {% empty %}
                         <p>No vendor found</p>

@@ -36,10 +36,10 @@ def get_all_vendor(request):
 
 
 def get_single_vendor(request, pk):
-    
+  
     try:
-        
-        thevendor = vendor.objects.get(pk =pk)
+            
+        thevendor = vendor.objects.get(pk=pk)
     except vendor.DoesNotExist:
         
         return redirect('errorpage')
