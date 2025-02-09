@@ -41,7 +41,7 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{ven.user.first_name}}</td>
                             <td>{{ven.user}}</td>
-                            <td><a href="{% url 'get_single_vendor' ven.pk %}"
+                            <td><a href=""
                                     style="text-decoration: underline !important;">{{ven.VendorName}}</a></td>
                             <td>{{ven.vendorType}}</td>
                             <td>{{ven.IsApproved}}</td>
@@ -52,7 +52,14 @@
                             <th scope="col"><a href="{% url 'delete_vendor' ven.pk %}"
                                     onclick=" return confirmDelete()"><i class="fas fa-trash"></i></a>
                             </th>
-                            <th scope="col"><a href="{% url 'get_single_vendor' ven.pk %}">View</a></i></th>
+                            <form method="post" action="{% url 'get_single_vendornopk' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="hiddenf" value="{{ven.pk}}">
+                            <th scope="col"><button type="submit">View</button></th>
+                                
+                              
+
+                            </form>
                         </tr>
                         {% empty %}
                         <p>No vendor found</p>

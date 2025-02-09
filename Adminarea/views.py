@@ -35,19 +35,21 @@ def get_all_vendor(request):
     return render(request, 'adminarea/vendor_view.html', context)
 
 
-def get_single_vendor(request, pk):
+def get_single_vendornopk(request):
+    if request.method == 'POST':
+        thevenid = request.POST.get('hiddenf')
     
-    try:
-        
-        thevendor = vendor.objects.get(pk =pk)
-    except vendor.DoesNotExist:
-        
-        return redirect('errorpage')
-        #return HttpResponse('You are a fool')
+        try:
+            
+            thevendor = vendor.objects.get(pk =thevenid)
+        except vendor.DoesNotExist:
+            
+            return redirect('errorpage')
+            #return HttpResponse('You are a fool')
     
-    context = {
-        'thevendor': thevendor
-    }
+        context = {
+            'thevendor': thevendor
+        }
     
     return render(request, 'adminarea/single_vendor_view.html', context)
 

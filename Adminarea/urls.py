@@ -26,7 +26,7 @@ urlpatterns = [
     path('errorpage/', views.errorpage, name='errorpage'),
     
     
-    path('get_single_vendor/<int:pk>/', views.get_single_vendor, name='get_single_vendor'),
+    path('get_single_vendornopk/', views.get_single_vendornopk, name='get_single_vendornopk'),
     
     path('searchvendor/', views.searchvendor, name='searchvendor'),
     
